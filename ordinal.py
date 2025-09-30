@@ -15,11 +15,9 @@ print(df)
 #now performing ordinal encoding on original dataset
 dataset=pd.read_csv("loan_sanction_train.csv")
 print(dataset.head(3))
-print(dataset["Property_Area"].unique())
+print(dataset["Property_Area"].unique())#this will give all data in property_area
 en_data_ord=[["Rural","Semiurban","Urban"]]
 from sklearn.preprocessing import OrdinalEncoder
 oen=OrdinalEncoder(categories=en_data_ord)
 dataset["Property_Area"]=oen.fit_transform(dataset[["Property_Area"]])
 print(dataset)
-from sklearn.preprocessing import OrdinalEncoder
-oe=OrdinalEncoder(categories=ord_data)
