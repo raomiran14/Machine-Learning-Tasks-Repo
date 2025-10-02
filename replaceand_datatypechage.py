@@ -1,0 +1,12 @@
+import pandas as pd
+dataset=pd.read_csv("loan_sanction_train.csv")
+print(dataset.head(3))
+print(dataset.info())
+print(dataset.isnull().sum())
+print(dataset["Dependents"].value_counts())
+dataset["Dependents"]=dataset["Dependents"].fillna(dataset["Dependents"].mode()[0])
+print(dataset.isnull().sum())
+dataset["Dependents"].replace("3+","3",inplace=True)
+print(dataset["Dependents"].value_counts())
+dataset["Dependents"]=dataset["Dependents"].astype("int64")
+print(dataset.info())
