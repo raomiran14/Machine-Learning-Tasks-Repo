@@ -1,2 +1,1 @@
-df["duplicated"]=df.duplicated()
-# print(df)
+lr.score(x_test,y_test)
