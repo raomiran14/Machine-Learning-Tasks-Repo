@@ -23,4 +23,14 @@ from sklearn.linear_model import LinearRegression
 lr = LinearRegression()
 lr.fit(x_train, y_train)
 print(lr.score(x_test, y_test))
+y_prd = lr.predict(x)
+plt.scatter(dataset["Level"], dataset["Salary"])
+plt.plot(dataset["Level"], y_prd, c="red")
+plt.xlabel("Level")
+plt.ylabel("Salary")
+plt.legend(["org", "prd"])
+plt.show()
+
+test = pf.transform([[8]])
+print(lr.predict(test))
 
