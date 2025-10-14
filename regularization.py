@@ -48,3 +48,44 @@ plt.xlabel("columns")
 plt.ylabel("coef")
 plt.show()
 
+from sklearn.linear_model import Lasso, Ridge
+
+# Step 9: Lasso Regression (L1)
+la = Lasso(alpha=10)
+la.fit(x_train, y_train)
+print("Lasso R2:", la.score(x_test, y_test) * 100)
+print("Lasso MSE:", mean_squared_error(y_test, la.predict(x_test)))
+print("Lasso MAE:", mean_absolute_error(y_test, la.predict(x_test)))
+print("Lasso RMSE:", np.sqrt(mean_squared_error(y_test, la.predict(x_test))))
+
+plt.figure(figsize=(12,5))
+plt.bar(x.columns, la.coef_)
+plt.title("Lasso Regression Coefficients")
+plt.xlabel("columns")
+plt.ylabel("coef")
+plt.show()
+
+# Step 10: Ridge Regression (L2)
+ri = Ridge(alpha=10)
+ri.fit(x_train, y_train)
+print("Ridge R2:", ri.score(x_test, y_test) * 100)
+print("Ridge MSE:", mean_squared_error(y_test, ri.predict(x_test)))
+print("Ridge MAE:", mean_absolute_error(y_test, ri.predict(x_test)))
+print("Ridge RMSE:", np.sqrt(mean_squared_error(y_test, ri.predict(x_test))))
+
+plt.figure(figsize=(12,5))
+plt.bar(x.columns, ri.coef_)
+plt.title("Ridge Regression Coefficients")
+plt.xlabel("columns")
+plt.ylabel("coef")
+plt.show()
+
+# Step 11: Compare all coefficients in one DataFrame
+df = pd.DataFrame({
+    "col_name": x.columns,
+    "linearregression": lr.coef_,
+    "lasso": la.coef_,
+    "ridge": ri.coef_
+})
+print(df)
+
