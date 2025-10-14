@@ -26,3 +26,25 @@ print(x.head())
 # Step 5: Train-test split (80% train, 20% test)
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+import numpy as np
+
+# Step 6: Linear Regression model
+lr = LinearRegression()
+lr.fit(x_train, y_train)
+print(lr.score(x_test, y_test) * 100)
+
+# Step 7: Evaluate model performance
+print("MSE:", mean_squared_error(y_test, lr.predict(x_test)))
+print("MAE:", mean_absolute_error(y_test, lr.predict(x_test)))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, lr.predict(x_test))))
+
+# Step 8: Plot feature coefficients
+plt.figure(figsize=(12,5))
+plt.bar(x.columns, lr.coef_)
+plt.title("Linear Regression Coefficients")
+plt.xlabel("columns")
+plt.ylabel("coef")
+plt.show()
+
