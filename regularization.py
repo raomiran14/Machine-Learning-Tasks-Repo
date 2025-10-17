@@ -80,7 +80,7 @@ plt.xlabel("columns")
 plt.ylabel("coef")
 plt.show()
 
-# Step 11: Compare all coefficients in one DataFrame
+
 df = pd.DataFrame({
     "col_name": x.columns,
     "linearregression": lr.coef_,
