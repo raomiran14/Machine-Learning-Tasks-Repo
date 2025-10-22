@@ -6,7 +6,7 @@ import seaborn as sns
 dataset = pd.read_csv("house_price_regression_dataset.csv") 
 print(dataset.head(3))      
 
-# Step 2: Visualize feature correlation
+
 plt.figure(figsize=(10,10))
 sns.heatmap(data=dataset.corr(), annot=True)
 plt.show()
