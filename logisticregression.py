@@ -22,3 +22,8 @@ lr.fit(x_train, y_train)
 
 print(lr.score(x_test, y_test) * 100)
 print(lr.predict([[40]]))
+
+plt.figure(figsize=(4,3))
+sns.scatterplot(x="Age", y="Purchased", data=dataset)
+sns.lineplot(x="Age", y=lr.predict(x), data=dataset, color="red")
+plt.show()
