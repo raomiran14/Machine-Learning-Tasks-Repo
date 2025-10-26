@@ -23,5 +23,10 @@ lr.fit(x_train, y_train)
 print(lr.score(x_test, y_test) * 100)
 print(lr.predict([[7.19, 26.0]]))
 
+from mlxtend.plotting import plot_decision_regions
+
+plot_decision_regions(x.to_numpy(), y.to_numpy(), clf=lr)
+plt.show()
+
 
 #this code is of logistic regression when we have multiple inputs and are linearly seperated but here the dataset which we use is not linearly seperated but if we use linearly seperated one  it is better 
