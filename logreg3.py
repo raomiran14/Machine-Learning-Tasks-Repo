@@ -12,5 +12,11 @@ plt.show()
 x = dataset.iloc[:, :-1]
 y = dataset["placed"]
 
+from sklearn.preprocessing import PolynomialFeatures
+pf = PolynomialFeatures(degree=3)
+pf.fit(x)
+x = pd.DataFrame(pf.transform(x))
+print(x)
+
 
 #if our data is not linearly seperable than we will use polynomial features
