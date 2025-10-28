@@ -18,5 +18,16 @@ pf.fit(x)
 x = pd.DataFrame(pf.transform(x))
 print(x)
 
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+
+lr = LogisticRegression()
+lr.fit(x_train, y_train)
+
+print(lr.score(x_test, y_test) * 100)
+
+
 
 #if our data is not linearly seperable than we will use polynomial features
