@@ -6,3 +6,5 @@ dataset = pd.read_csv("iris.csv")
 print(dataset.head(3))
 print(dataset["species"].unique())
 
+sns.pairplot(data=dataset, hue="species")
+plt.show()
