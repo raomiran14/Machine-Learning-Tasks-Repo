@@ -27,3 +27,4 @@ lr1 = LogisticRegression(multi_class="multinomial")
 lr1.fit(x_train, y_train)
 print(lr1.score(x_test, y_test) * 100)
 
+
