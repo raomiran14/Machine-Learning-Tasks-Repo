@@ -16,3 +16,15 @@ from sklearn.linear_model import LogisticRegression
 lr = LogisticRegression()
 lr.fit(x_train, y_train)
 print(lr.score(x_test, y_test) * 100)
+
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
+
+cf = confusion_matrix(y_test, lr.predict(x_test))
+print(cf)
+
+sns.heatmap(cf, annot=True)
+plt.show()
+
+print(precision_score(y_test, lr.predict(x_test)) * 100)
+print(recall_score(y_test, lr.predict(x_test)) * 100)
+print(f1_score(y_test, lr.predict(x_test)) * 100)
