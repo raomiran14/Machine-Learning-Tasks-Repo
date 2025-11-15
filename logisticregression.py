@@ -27,3 +27,4 @@ plt.figure(figsize=(4,3))
 sns.scatterplot(x="Age", y="Purchased", data=dataset)
 sns.lineplot(x="Age", y=lr.predict(x), data=dataset, color="red")
 plt.show()
+#this code is of logistic regression when we have single inputs
