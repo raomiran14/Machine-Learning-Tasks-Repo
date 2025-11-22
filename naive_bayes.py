@@ -31,3 +31,17 @@ print(gnb.score(x_test, y_test) * 100), print(gnb.score(x_train, y_train) * 100)
 
 plot_decision_regions(x.to_numpy(), y.to_numpy(), clf=gnb)
 plt.show()
+
+mnb = MultinomialNB()
+mnb.fit(x_train, y_train)
+print(mnb.score(x_test, y_test) * 100), print(mnb.score(x_train, y_train) * 100)
+plot_decision_regions(x.to_numpy(), y.to_numpy(), clf=mnb)
+plt.show()
+
+bnb = BernoulliNB()
+bnb.fit(x_train, y_train)
+print(mnb.score(x_test, y_test) * 100), print(mnb.score(x_train, y_train) * 100)
+plot_decision_regions(x.to_numpy(), y.to_numpy(), clf=bnb)
+plt.show()
+
+# in my case dataset is not linearly separable so use linearly separable data for better accuracy
