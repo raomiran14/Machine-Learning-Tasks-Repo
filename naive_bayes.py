@@ -40,7 +40,7 @@ plt.show()
 
 bnb = BernoulliNB()
 bnb.fit(x_train, y_train)
-print(mnb.score(x_test, y_test) * 100), print(mnb.score(x_train, y_train) * 100)
+print(mnb.score(x_test, y_test) * 100), print(mnb.score(x_train, y_train) )
 plot_decision_regions(x.to_numpy(), y.to_numpy(), clf=bnb)
 plt.show()
 
