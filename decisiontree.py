@@ -19,3 +19,20 @@ sc = StandardScaler()
 sc.fit(x)
 x = pd.DataFrame(sc.transform(x), columns=x.columns)
 print(x)
+
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+
+from sklearn.tree import DecisionTreeClassifier
+
+# gini
+dt = DecisionTreeClassifier()
+dt.fit(x_train, y_train)
+
+# entropy
+dt1 = DecisionTreeClassifier(criterion="entropy")
+dt1.fit(x_train, y_train)
+
+print(dt.score(x_test, y_test) * 100)
+print(dt1.score(x_test, y_test) * 100)
+print(dt.predict([[19, 19000]]))
