@@ -36,3 +36,10 @@ dt1.fit(x_train, y_train)
 print(dt.score(x_test, y_test) * 100)
 print(dt1.score(x_test, y_test) * 100)
 print(dt.predict([[19, 19000]]))
+
+plot_decision_regions(x.to_numpy(), y.to_numpy(), clf=dt)
+plt.show()
+
+from sklearn.tree import plot_tree
+plot_tree(dt)
+plt.show()
