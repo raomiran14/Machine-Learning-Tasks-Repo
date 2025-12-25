@@ -7,39 +7,7 @@ dataset = pd.read_csv("D:\PROJECTS\Machine-Learning-Tasks-Repo\Social_Network_Ad
 print(dataset.head(3))
 
 sns.scatterplot(x="Age", y="EstimatedSalary", data=dataset, hue="Purchased")
-plt.show()
+# plt.show()
 
 print(dataset.isnull().sum())
 
-x = dataset.iloc[:, :-1]
-y = dataset["Purchased"]
-
-from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-sc.fit(x)
-x = pd.DataFrame(sc.transform(x), columns=x.columns)
-print(x)
-
-from sklearn.model_selection import train_test_split
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
-
-from sklearn.tree import DecisionTreeClassifier
-
-# gini
-dt = DecisionTreeClassifier()
-dt.fit(x_train, y_train)
-
-# entropy
-dt1 = DecisionTreeClassifier(criterion="entropy")
-dt1.fit(x_train, y_train)
-
-print(dt.score(x_test, y_test) * 100)
-print(dt1.score(x_test, y_test) * 100)
-print(dt.predict([[19, 19000]]))
-
-plot_decision_regions(x.to_numpy(), y.to_numpy(), clf=dt)
-plt.show()
-
-from sklearn.tree import plot_tree
-plot_tree(dt)
-plt.show()
