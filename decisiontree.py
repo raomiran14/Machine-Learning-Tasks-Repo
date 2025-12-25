@@ -45,3 +45,9 @@ from sklearn.tree import plot_tree
 plot_tree(dt)
 plt.show()
 
+# post pruning
+for i in range(1, 20):
+    dt2 = DecisionTreeClassifier(max_depth=i)
+    dt2.fit(x_train, y_train)
+    print(dt2.score(x_train, y_train), dt2.score(x_test, y_test), i)
+
