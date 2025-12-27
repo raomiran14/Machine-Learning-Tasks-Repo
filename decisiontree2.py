@@ -16,3 +16,14 @@ y = dataset["income"]
 
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+
+from sklearn.tree import DecisionTreeRegressor, plot_tree
+
+dt = DecisionTreeRegressor()
+dt.fit(x_train, y_train)
+
+print(dt.score(x_test, y_test) * 100)
+print(dt.score(x_train, y_train) * 100)
+
+plot_tree(dt)
+plt.show()
