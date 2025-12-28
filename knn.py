@@ -22,3 +22,12 @@ x = pd.DataFrame(sc.transform(x), columns=x.columns)
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
+from sklearn.neighbors import KNeighborsClassifier
+
+knn = KNeighborsClassifier(n_neighbors=6)
+knn.fit(x_train, y_train)
+
+print(knn.score(x_test, y_test) * 100)
+print(knn.score(x_train, y_train) * 100)
+
+
