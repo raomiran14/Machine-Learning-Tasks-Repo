@@ -30,4 +30,16 @@ knn.fit(x_train, y_train)
 print(knn.score(x_test, y_test) * 100)
 print(knn.score(x_train, y_train) * 100)
 
+for i in range(1, 30):
+    knn1 = KNeighborsClassifier(n_neighbors=i)
+    knn1.fit(x_train, y_train)
+    print(knn1.score(x_train, y_train) * 100,
+          knn1.score(x_test, y_test) * 100, i)
+
+print(knn.predict([[1.083596, -0.990844]]))
+
+plot_decision_regions(x.to_numpy(), y.to_numpy(), clf=knn)
+plt.show()
+
+
 
