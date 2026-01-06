@@ -24,3 +24,6 @@ sv.fit(x_train, y_train)
 print(sv.score(x_test, y_test) * 100)
 print(sv.score(x_train, y_train) * 100)
 
+plot_decision_regions(x.to_numpy(), y.to_numpy(), clf=sv)
+plt.show()
+
