@@ -24,3 +24,7 @@ sv.fit(x_train, y_train)
 print(sv.score(x_testr, y_test) * 100)
 print(sv.score(x_train, y_train) * 100)
 
+sns.scatterplot(x="cgpa", y="package", data=dataset)
+plt.plot(dataset["cgpa"], sv.predict(x), color="red")
+plt.show()
+
