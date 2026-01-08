@@ -16,3 +16,11 @@ y = dataset["package"]
 from sklearn.model_selection import train_test_split
 x_train, x_testr, y_train, y_test = train_test_split( x, y, test_size=0.2, random_state=42)
 
+from sklearn.svm import SVR
+
+sv = SVR(kernel="linear")
+sv.fit(x_train, y_train)
+
+print(sv.score(x_testr, y_test) * 100)
+print(sv.score(x_train, y_train) * 100)
+
