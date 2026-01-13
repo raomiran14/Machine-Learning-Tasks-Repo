@@ -39,3 +39,14 @@ rd.fit(x_train, y_train)
 
 print(rd.best_params_)
 print(rd.best_score_)
+
+from sklearn.model_selection import GridSearchCV
+
+gd = GridSearchCV(
+    DecisionTreeRegressor(),
+    param_grid=df
+)
+gd.fit(x_train, y_train)
+
+print(gd.best_params_)
+print(gd.best_score_)
