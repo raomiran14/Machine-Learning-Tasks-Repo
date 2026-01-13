@@ -21,3 +21,21 @@ dt.fit(x_train, y_train)
 
 print(dt.score(x_train, y_train) * 100)
 print(dt.score(x_test, y_test) * 100)
+
+from sklearn.model_selection import RandomizedSearchCV
+
+df = {
+    "criterion": ['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+    "splitter": ['best', 'random'],
+    "max_depth": [i for i in range(2, 20)]
+}
+
+rd = RandomizedSearchCV(
+    DecisionTreeRegressor(),
+    param_distributions=df,
+    n_iter=20
+)
+rd.fit(x_train, y_train)
+
+print(rd.best_params_)
+print(rd.best_score_)
