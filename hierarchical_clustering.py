@@ -19,3 +19,6 @@ ac = AgglomerativeClustering(n_clusters=2, linkage="single")
 
 dataset["predict"] = ac.fit_predict(dataset)
 print(dataset.head(2))
+
+sns.pairplot(data=dataset, hue="predict")
+plt.show()
