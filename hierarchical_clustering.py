@@ -8,3 +8,7 @@ print(dataset.head(2))
 sns.pairplot(data=dataset)
 plt.show()
 
+import scipy.cluster.hierarchy as sc
+
+sc.dendrogram( sc.linkage(dataset, method="single", metric="euclidean"))
+plt.show()
