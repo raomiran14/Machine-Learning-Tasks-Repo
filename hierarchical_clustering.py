@@ -12,3 +12,10 @@ import scipy.cluster.hierarchy as sc
 
 sc.dendrogram( sc.linkage(dataset, method="single", metric="euclidean"))
 plt.show()
+
+from sklearn.cluster import AgglomerativeClustering
+
+ac = AgglomerativeClustering(n_clusters=2, linkage="single")
+
+dataset["predict"] = ac.fit_predict(dataset)
+print(dataset.head(2))
