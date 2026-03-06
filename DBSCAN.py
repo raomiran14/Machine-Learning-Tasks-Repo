@@ -19,3 +19,6 @@ db = DBSCAN(eps=0.2, min_samples=5)
 dataset["predict"] = db.fit_predict(dataset)
 
 print(dataset.head(3))
+
+sns.scatterplot(x="data1", y="data2", data=dataset, hue="predict")
+plt.show()
