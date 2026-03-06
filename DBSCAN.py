@@ -11,4 +11,11 @@ dataset = pd.DataFrame(df)
 print(dataset.head(3))
 
 sns.scatterplot(x="data1", y="data2", data=dataset)
-# plt.show()
+plt.show()
+
+from sklearn.cluster import DBSCAN
+
+db = DBSCAN(eps=0.2, min_samples=5)
+dataset["predict"] = db.fit_predict(dataset)
+
+print(dataset.head(3))
