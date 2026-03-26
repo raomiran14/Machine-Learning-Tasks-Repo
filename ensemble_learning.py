@@ -34,3 +34,11 @@ print(sv.score(x_train, y_train) * 100), print(sv.score(x_test, y_test) * 100)
 gnb = GaussianNB()
 gnb.fit(x_train, y_train)
 print(gnb.score(x_train, y_train) * 100), print(gnb.score(x_test, y_test) * 100)
+
+from sklearn.ensemble import VotingClassifier
+
+li = [("dt1", DecisionTreeClassifier()), ("sv1", SVC()),("gnb1", GaussianNB())]
+vc = VotingClassifier(li)
+vc.fit(x_train, y_train)
+
+print(vc.score(x_train, y_train) * 100), print(vc.score(x_test, y_test) * 100)
