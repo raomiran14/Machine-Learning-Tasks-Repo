@@ -27,3 +27,11 @@ print(dt.score(x_train, y_train) * 100), print(dt.score(x_test, y_test) * 100)
 sv = SVR()
 sv.fit(x_train, y_train)
 print(sv.score(x_train, y_train) * 100), print(sv.score(x_test, y_test) * 100)
+
+from sklearn.ensemble import VotingRegressor
+
+li = [("lr1", LinearRegression()),("dt1", DecisionTreeRegressor()),("sv1", SVR())]
+vr = VotingRegressor(li)
+vr.fit(x_train, y_train)
+
+print(vr.score(x_train, y_train) * 100), print(vr.score(x_test, y_test) * 100)
