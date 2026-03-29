@@ -25,3 +25,20 @@ sv = SVC()
 lr.fit(x_train, y_train)
 dt.fit(x_train, y_train)
 sv.fit(x_train, y_train)
+
+print("LR:", lr.score(x_test, y_test) * 100)
+print("DT:", dt.score(x_test, y_test) * 100)
+print("SVM:", sv.score(x_test, y_test) * 100)
+
+from sklearn.ensemble import VotingClassifier
+
+models = [
+    ("lr", LogisticRegression()),
+    ("dt", DecisionTreeClassifier()),
+    ("sv", SVC())
+]
+
+vc = VotingClassifier(models)
+vc.fit(x_train, y_train)
+
+print("Voting Classifier:", vc.score(x_test, y_test) * 100)
