@@ -32,12 +32,7 @@ print("SVM:", sv.score(x_test, y_test) * 100)
 
 from sklearn.ensemble import VotingClassifier
 
-models = [
-    ("lr", LogisticRegression()),
-    ("dt", DecisionTreeClassifier()),
-    ("sv", SVC())
-]
-
+models = [ ("lr", LogisticRegression()),("dt", DecisionTreeClassifier()),("sv", SVC())]
 vc = VotingClassifier(models)
 vc.fit(x_train, y_train)
 
