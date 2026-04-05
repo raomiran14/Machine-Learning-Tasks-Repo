@@ -19,3 +19,13 @@ lr.fit(x_train, y_train)
 
 print("Train Accuracy:", lr.score(x_train, y_train) * 100)
 print("Test Accuracy:", lr.score(x_test, y_test) * 100)
+
+from sklearn.metrics import confusion_matrix
+
+y_pred = lr.predict(x_test)
+cm = confusion_matrix(y_test, y_pred)
+
+print(cm)
+
+sns.heatmap(cm, annot=True)
+plt.show()
