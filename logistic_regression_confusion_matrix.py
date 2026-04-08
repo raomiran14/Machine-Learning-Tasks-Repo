@@ -25,7 +25,6 @@ from sklearn.metrics import confusion_matrix
 y_pred = lr.predict(x_test)
 cm = confusion_matrix(y_test, y_pred)
 
-print(cm)
 
 sns.heatmap(cm, annot=True)
 plt.show()
