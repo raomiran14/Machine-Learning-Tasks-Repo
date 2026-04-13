@@ -16,3 +16,6 @@ kmeans = KMeans(n_clusters=3)
 dataset["cluster"] = kmeans.fit_predict(x)
 
 print(dataset.head(5))
+
+sns.scatterplot( x="cgpa", y="placement_exam_marks",  data=dataset,  hue="cluster")
+plt.show()
