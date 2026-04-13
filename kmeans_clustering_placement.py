@@ -7,3 +7,5 @@ print(dataset.head(3))
 
 sns.scatterplot(x="cgpa", y="placement_exam_marks", data=dataset)
 plt.show()
+
+x = dataset[["cgpa", "placement_exam_marks"]]
