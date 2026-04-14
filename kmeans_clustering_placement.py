@@ -17,5 +17,17 @@ dataset["cluster"] = kmeans.fit_predict(x)
 
 print(dataset.head(5))
 
-sns.scatterplot( x="cgpa", y="placement_exam_marks",  data=dataset,  hue="cluster")
+
+centers = kmeans.cluster_centers_
+
+sns.scatterplot(
+    x="cgpa",
+    y="placement_exam_marks",
+    data=dataset,
+    hue="cluster"
+)
+
+plt.scatter(centers[:, 0], centers[:, 1], s=100, c='red', label="centroids")
+
+plt.legend()
 plt.show()
